@@ -309,13 +309,10 @@ ul { list-style: none; }
     letter-spacing: 2px;
     text-transform: uppercase;
     padding: 0.35em 0.6em;
-    transition: color 0.1s steps(2), text-shadow 0.1s steps(2), border 0.1s steps(2), background 0.1s steps(2);
+    transition: color 0.1s steps(2), border 0.1s steps(2), background 0.1s steps(2);
     border: 2px solid transparent;
     border-bottom: none;
     font-weight: 700;
-    text-shadow:
-        0 1px 0 rgba(0, 0, 0, 0.9),
-        0 0 8px rgba(0, 0, 0, 0.9);
 }
 
 .nav a .num {
@@ -323,7 +320,6 @@ ul { list-style: none; }
     min-width: 2.2em;
     margin-right: 0.6em;
     color: var(--pink);
-    text-shadow: 0 0 8px var(--pink-glow);
     font-size: 0.8em;
     text-align: left;
 }
@@ -331,7 +327,6 @@ ul { list-style: none; }
 .nav a.is-active {
     color: var(--pink);
     background: transparent;
-    text-shadow: 0 0 10px var(--pink-glow);
 }
 
 .nav a::before,
@@ -361,7 +356,6 @@ ul { list-style: none; }
 .nav a:focus,
 .nav a:focus-visible {
     color: var(--pink);
-    text-shadow: 0 0 10px var(--pink-glow);
     outline: none;
 }
 
