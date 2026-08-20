@@ -227,7 +227,7 @@ ul { list-style: none; }
 .sidebar {
     position: relative;
     width: 25%;
-    background: rgba(3, 3, 14, 0.55);
+    background: transparent;
     border-right: 3px solid rgba(85, 255, 255, 0.3);
     display: flex;
     flex-direction: column;
@@ -330,9 +330,7 @@ ul { list-style: none; }
 
 .nav a.is-active {
     color: var(--pink);
-    border-color: var(--pink);
-    background: var(--bg-content);
-    box-shadow: 0 0 8px var(--pink-glow);
+    background: transparent;
     text-shadow: 0 0 10px var(--pink-glow);
 }
 
@@ -360,6 +358,7 @@ ul { list-style: none; }
 }
 
 .nav a:hover,
+.nav a:focus,
 .nav a:focus-visible {
     color: var(--pink);
     text-shadow: 0 0 10px var(--pink-glow);
@@ -637,7 +636,7 @@ html[data-reduce-motion="true"] .mp-disc { animation: none; }
 .content-panel {
     position: absolute;
     inset: 0;
-    background: rgba(4, 4, 16, 0.55);
+    background: transparent;
     transform-origin: left;
     transition: transform var(--panel-ms) steps(6);
     overflow-y: auto;
