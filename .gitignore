@@ -1,0 +1,9 @@
+server/
+node_modules/
+.playwright-mcp/
+.agents/
+api_url.txt
+skills-lock.json
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark light">
+<title>PHO LA</title>
+<meta name="description" content="TODO: mo ta ngan ve trang cua ban">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:,">
+</head>
+<body>
+<a class="skip-to" href="#main-nav">skip to content</a>
+
+<div class="site">
+  <div class="main-container">
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar">
+      <a href="#top" class="version"><span>v1.0</span></a>
+
+      <div class="profile">
+        <div class="profile-img" id="profile-img" role="img" aria-label="Avatar"><img src="avatar.jpg" alt="avatar"></div>
+        <h1 class="site-title" id="site-title">PHO LA</h1>
+        <hr>
+      </div>
+
+      <nav class="nav" id="main-nav">
+        <ul id="nav-list"></ul>
+      </nav>
+
+      <!-- mini player -->
+      <div class="mini-player" id="mini-player">
+        <div class="mp-disc" id="mp-disc" aria-hidden="true"></div>
+        <button class="mp-btn" id="mp-prev" aria-label="Previous track">&lt;&lt;</button>
+        <button class="mp-btn" id="mp-play" aria-label="Play/Pause">&gt;</button>
+        <button class="mp-btn" id="mp-next" aria-label="Next track">&gt;&gt;</button>
+        <div class="mp-title" id="mp-title-wrap"><div class="mp-text" id="mp-title">...</div></div>
+      </div>
+
+      <button class="settings-button" id="settings-btn" aria-label="Settings">SET</button>
+
+      <!-- settings panel -->
+      <div class="settings-panel" id="settings-panel">
+        <div class="settings-inner">
+          <div class="settings-container">
+            <span class="settings-label">theme</span>
+            <div class="settings-theme">
+              <button class="settings-theme-box" id="theme-current">dark</button>
+              <button class="settings-theme-prev" id="theme-prev">&lt;&lt;</button>
+              <button class="settings-theme-next" id="theme-next">&gt;&gt;</button>
+            </div>
+          </div>
+          <div class="settings-container">
+            <span class="settings-label">font size</span>
+            <div class="settings-font-size">
+              <button class="settings-font-small" id="font-small">A-</button>
+              <button class="settings-font-reset" id="font-reset">A</button>
+              <button class="settings-font-big" id="font-big">A+</button>
+            </div>
+          </div>
+          <div class="settings-container">
+            <span class="settings-label">motion</span>
+            <button class="settings-toggle" id="toggle-motion" aria-pressed="true">on</button>
+          </div>
+          <div class="settings-container">
+            <span class="settings-label">parallax</span>
+            <button class="settings-toggle" id="toggle-parallax" aria-pressed="true">on</button>
+          </div>
+          <div class="settings-container">
+            <span class="settings-label">effects</span>
+            <button class="settings-toggle" id="toggle-effects" aria-pressed="true">on</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== CONTENT ==================== -->
+    <div class="content">
+      <!-- parallax background layers -->
+      <div class="parallax" id="parallax">
+        <div class="layer sky"></div>
+        <div class="layer bg2"></div>
+        <div class="layer bg1"></div>
+        <div class="layer mid3"></div>
+        <div class="layer mid2"></div>
+        <div class="layer mid1"></div>
+        <div class="layer fg"></div>
+        <div class="tint"></div>
+      </div>
+
+      <canvas id="shooting-stars-canvas"></canvas>
+      <canvas id="rain-canvas"></canvas>
+
+      <!-- content panels -->
+      <div class="content-panel is-open" id="panel-home">
+        <div class="inner">
+          <h2 id="wis-wall"></h2>
+          <p id="intro"></p>
+          <p>Some quick facts:</p>
+          <ul id="facts-list"></ul>
+        </div>
+      </div>
+
+      <div class="content-panel is-closed" id="panel-about">
+        <div class="inner">
+          <h2>about me</h2>
+          <div id="about-content"></div>
+        </div>
+      </div>
+
+      <div class="content-panel is-closed" id="panel-blog">
+        <div class="inner">
+          <h2>blog</h2>
+          <p>chua co bai nao. som thoi.</p>
+          <ul id="blog-list" class="plain-list"></ul>
+        </div>
+      </div>
+
+      <div class="content-panel is-closed" id="panel-album">
+        <div class="inner">
+          <h2>album</h2>
+          <p>anh cua tao (se them sau)</p>
+          <div id="album-list"></div>
+        </div>
+      </div>
+
+      <div class="content-panel is-closed" id="panel-projects">
+        <div class="inner">
+          <h2>projects</h2>
+          <p>chua co gi. sap co.</p>
+          <div id="projects-list"></div>
+        </div>
+      </div>
+
+      <div class="content-panel is-closed" id="panel-links">
+        <div class="inner">
+          <h2>cool sites</h2>
+          <div class="button-group" id="links-list"></div>
+        </div>
+      </div>
+
+      <div class="content-panel is-closed" id="panel-contact">
+        <div class="inner">
+          <h2>contact</h2>
+          <p id="contact-email"></p>
+          <div class="button-group" id="social-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="menu-overlay" id="menu-overlay"></div>
+<button class="menu-toggle" id="menu-toggle" aria-label="Menu">MENU</button>
+
+<!-- easter egg -->
+<div id="easter-egg" hidden>
+  <div class="easter-inner">
+    <h2>CHAO MUNG DEN MAT SAU TRANG WEB</h2>
+    <p>(cho nay tao giau, danh bao ai)</p>
+    <p>co mot con ech o day nhung no khong ro no lam gi.</p>
+    <button id="egg-close" type="button">dong cai nay di</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
