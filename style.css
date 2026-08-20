@@ -5,12 +5,12 @@
 /* ---------- Font Import START ---------- */
 @font-face {
     font-family: 'DOSVGA';
-    src: url('/font/Perfect DOS VGA 437.ttf') format('truetype');
+    src: url('font/Perfect DOS VGA 437.ttf') format('truetype');
     font-display: swap;
 }
 @font-face {
     font-family: 'DOSVGA';
-    src: url('/font/Perfect DOS VGA 437 Win.ttf') format('truetype');
+    src: url('font/Perfect DOS VGA 437 Win.ttf') format('truetype');
     font-display: swap;
     font-weight: bold;
 }
@@ -53,9 +53,9 @@
     --font-pixel: 'DOSVGA', 'Perfect DOS VGA 437', 'Courier New', monospace;
     --font-body: 'DOSVGA', 'Perfect DOS VGA 437', 'Courier New', monospace;
 
-    --bg-image: url("/background.gif");
+    --bg-image: url("background.gif");
 
-    --sky-src: url("/background.gif");
+    --sky-src: url("background.gif");
     --bg2-src: linear-gradient(180deg, transparent 0%, rgba(0,0,30,0.3) 50%, rgba(0,0,20,0.6) 100%);
     --bg1-src: linear-gradient(180deg, transparent 0%, rgba(0,0,40,0.4) 50%, rgba(0,0,25,0.7) 100%);
     --mid3-src: linear-gradient(180deg, transparent 60%, rgba(0,0,30,0.5) 80%, rgba(0,0,20,0.8) 100%);
