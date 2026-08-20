@@ -18,15 +18,13 @@ const SITE_DATA = {
     "i want to be a professional cyber security",
     "i code websites, automation tools and bots",
   ],
-  about: "Vietnamese. First personal website. Code mostly in Python. Like taking photos. Want to be a professional in cyber security. I build websites, automation tools and bots.",
   posts: [],
   projects: [
-    { name: "ODownloader", desc: "download tool", url: "#" },
-    { name: "Ostudio", desc: "studio tool", url: "#" },
+    { name: "ODownloader", desc: "download tool", url: "https://github.com/wis333k/otools-app" },
+    { name: "Ostudio", desc: "studio tool", url: "https://github.com/wis333k/ai-studio-landing" },
   ],
   nav: [
     { label: "home", href: "#top", panel: "panel-home" },
-    { label: "about", href: "#about", panel: "panel-about" },
     { label: "projects", href: "#projects", panel: "panel-projects" },
     { label: "album", href: "#album", panel: "panel-album" },
     { label: "links", href: "#links", panel: "panel-links" },
@@ -37,7 +35,7 @@ const SITE_DATA = {
     { label: "bluesky", url: "#" },
     { label: "discord", url: "#" },
   ],
-  email: { user: "hello", domain: "todo.dev" },
+  email: { user: "wis", domain: "email" },
   socials: [
     { icon: "github", url: "#" },
     { icon: "bluesky", url: "#" },
@@ -94,8 +92,10 @@ function renderAll() {
   const navList = $("nav-list");
   if (navList) {
     navList.innerHTML = D.nav
-      .map((n) => `<li><a href="${esc(n.href)}" data-panel="${esc(n.panel)}">${esc(n.label)}</a></li>`)
+      .map((n, i) => `<li><a href="${esc(n.href)}" data-panel="${esc(n.panel)}"><span class="num">${String(i + 1).padStart(2, "0")}</span>${esc(n.label)}</a></li>`)
       .join("");
+    const home = navList.querySelector('[data-panel="panel-home"]');
+    if (home) home.classList.add("is-active");
   }
 
   // intro + facts
@@ -103,10 +103,6 @@ function renderAll() {
   if (intro) intro.innerHTML = D.tagline;
   const factsList = $("facts-list");
   if (factsList) factsList.innerHTML = D.facts.map((f) => `<li>${esc(f)}</li>`).join("");
-
-  // about
-  const aboutContent = $("about-content");
-  if (aboutContent) aboutContent.innerHTML = `<p>${esc(D.about)}</p>`;
 
   // blog
   const blogList = $("blog-list");
@@ -123,7 +119,7 @@ function renderAll() {
       .map((p) => `<div style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px dotted var(--stroke)">
         <h3 style="color:var(--link-hover);font-size:1rem">${esc(p.name)}</h3>
         <p style="font-size:.85rem;opacity:.7;margin:2px 0">${esc(p.desc)}</p>
-        <a href="${esc(p.url)}" style="font-size:.8rem">[source]</a>
+        <a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" style="font-size:.8rem">[source]</a>
       </div>`)
       .join("");
   }
@@ -184,6 +180,9 @@ const Navigation = (() => {
     const prev = $(currentPanel);
     const next = $(panelId);
     if (!prev || !next) { transitioning = false; return; }
+
+    document.querySelectorAll(".nav a").forEach((a) =>
+      a.classList.toggle("is-active", a.dataset.panel === panelId));
 
     const prevInner = prev.querySelector(".inner");
     if (prevInner) prevInner.classList.add("is-dim");
